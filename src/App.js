@@ -4,7 +4,8 @@ import ErrorMessage from "./elements/ErrorMessage";
 import DropDown from "./elements/DropDown";
 import ScatterPlot from "./graphs/ScatterPlot";
 
-import { fetchData, parseCSVData } from "./fetch/fetch-data";
+import { fetchData, parseCSVData } from "./utils/fetch-data";
+import { getGraphAttributes, getNumericAttributes } from "./utils/graph-util";
 
 import { CSV_PATH } from "./constants/file-paths";
 
@@ -13,21 +14,6 @@ import "./App.scss";
 const GRAPH_DIMENSIONS = { width: 1000, height: 750 };
 const DEFAULT_X = "P. Mass (EU)";
 const DEFAULT_Y = "P. Gravity (EU)";
-
-/*
-  TODOs:
-    clear graph and populate new values
-    update graph ticks, range, etc dynamically ** (x)
-    use memoisation
-    document
-    use queue?
-    basic styling
-    separation of concerns - basic scatter graph component, dropdown, button components (x)
-    states (x)
-    use appropriate key prop (x)
-    separate React rendering logic from graphing logic (x)
-    default selected/ populated (x)
-*/
 
 const App = () => {
   const [allData, setAllData] = useState([]);
@@ -53,21 +39,6 @@ const App = () => {
 
     return { selectedScatterPlotData, xArr, yArr };
   };
-
-  const getGraphAttributes = (xArr, yArr) => {
-    const xArrMax = Math.ceil(Math.max(...xArr));
-    const xMaxDigitCount = (Math.log(xArrMax) * Math.LOG10E + 1) | 0;
-    const xTickCount = xArrMax / Math.pow(10, xMaxDigitCount - 2);
-
-    const yArrMax = Math.ceil(Math.max(...yArr));
-    const yMaxDigitCount = (Math.log(yArrMax) * Math.LOG10E + 1) | 0;
-    const yTickCount = yArrMax / Math.pow(10, yMaxDigitCount - 1.5);
-
-    return { xArrMax, xTickCount, yArrMax, yTickCount };
-  };
-
-  const getNumericAttributes = (csvData) =>
-    Object.keys(csvData[0]).filter((keyName) => !isNaN(csvData[0][keyName]));
 
   const axesSelected = (axis, value) => {
     if (axis === "x") setXLabel(value);
