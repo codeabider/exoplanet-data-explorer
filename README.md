@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+Noodle.AI – UI Engineering Screen
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Thank you for your interest in Noodle.ai’s UI Engineering team. The following is an exercise
+which we use to gauge your UI engineering experience and coding style. You have 48 hours to
+complete it, but we encourage you to not spend more than three or four hours on it.
+You will be evaluated on the following criteria:
+ Functionality: Can it do what the spec requires.
+ Reproducibility: Can another developer easily reproduce the build.
+ Readability: Is it easy to follow the logic of how the code works
+ Usability: Is the UI styled in such a way that maximizes readability, ease of navigation,
+and visual neatness.
 
-## Available Scripts
+The task is as follows.
 
-In the project directory, you can run:
+Attached is a CSV file from the Planetary Habitability Laboratory, listing most confirmed
+Exoplanet known to science. Build a UI that allows a reader to see the distribution of values in
+this dataset using data visualizations using d3.js plus whatever UI library or framework you are
+familiar with.
 
-### `npm start`
+Functionality Requirements
+ High Level User Experience
+A reader should be able to select any two of the numeric features in the CSV and see a
+scatterplot of the values, where each point of the scatterplot represents one planet, and
+each axis shows one of the selected features.
+ User Flow
+On load, the UI should load with two features pre-selected, and a scatterplot populated.
+The user can switch the features being compared by changing the values in a dropdown.
+The user should also be able to see the distribution of the selected value for each axis.
+See attached image for a suggested wireframe. Feel free to deviate from the design.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Functionality Prioritization
+If the functionalities cannot all be completed, prioritize the following
+1. Data Loading
+2. Dropdowns for selecting numeric features
+3. Points plotted in the scatterplot
+4. Scales for the scatterplot
+5. Titles, margins, and other general styling
+6. Binned histograms for selected features
+If you are unfamiliar with data visualization, here are some methods from D3.js that will be
+useful for completing this task.
+ Data loading
+o d3-queue, for loading the CSV
+o d3-dsv for parsing the CSV
+ Event Coordination
+o d3-dispatch for coordinating interactions
+ General Intro to D3: http://alignedleft.com/tutorials/d3
+Reproducibility Requirements
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Please submit your work as a zip file. Another developer with the latest version of NPM set up
+on their computer should be able to unzip the file into a directory, then build and view the UI
+by running:
+ npm install
+ npm run start
+…and visiting URL for a localhost server. If your preferred framework uses a different set of CLI
+tools, please provide a build process of similar level of simplicity.
+If you are unfamiliar with NPM’s package management system, you can use the attached
+package.json file as a starting point. To use it, put it in an empty directory then run `npm install`
+and `npm run start`.
